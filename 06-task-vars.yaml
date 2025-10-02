@@ -1,0 +1,15 @@
+- name: play level variables
+  hosts: local
+  connection: local # ensures no SSH is used.
+  vars:
+    COURSE: Ansible
+    TOPIC: variables
+    LEVEL: Easy
+  tasks:
+  - name: print learning details
+    vars:
+      LEVEL: Medium
+      
+    ansible.builtin.debug:
+      msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
+
