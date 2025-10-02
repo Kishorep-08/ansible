@@ -1,15 +1,16 @@
 - name: play level variables
   hosts: local
   connection: local # ensures no SSH is used.
-  vars:
+  vars:  # play level
     COURSE: Ansible
     TOPIC: variables
     LEVEL: Easy
   tasks:
   - name: print learning details
     vars:
-      LEVEL: Medium
-      
+      LEVEL: Medium  # task level
+
     ansible.builtin.debug:
       msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
 
+## Here we defined both play level and tassk level variables. When there are two variables defined in two levels with same name, task level is preferred over play level.
