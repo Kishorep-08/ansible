@@ -1,11 +1,13 @@
 - name: " Variables from files "
   hosts: local
   connection: local
-  vars_files:
+  vars_files:   # vars from file
   - course.yml
   tasks:
   - name: print learning details
-    # vars:
+    # vars:   # task level
     #   LEVEL: Medium  # task level
     ansible.builtin.debug:
       msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
+
+## Here we called variables from file and also defined task level variables. In this case also, task level variables takes the preference.
