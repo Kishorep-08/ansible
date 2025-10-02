@@ -1,5 +1,5 @@
 - name: play level variables
-  hosts: local4
+  hosts: local
   connection: local # ensures no SSH is used.
   vars:
     COURSE: Ansible
