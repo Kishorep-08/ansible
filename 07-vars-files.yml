@@ -5,7 +5,7 @@
   - course.yml
   tasks:
   - name: print learning details
-    vars:
-      LEVEL: Medium  # task level
+    # vars:
+    #   LEVEL: Medium  # task level
     ansible.builtin.debug:
       msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
