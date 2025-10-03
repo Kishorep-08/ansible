@@ -4,10 +4,10 @@
   vars_prompt:
   - name: username
     prompt: What is your username?
-    private: false
+    private: false  # It will show what you are typing in runtime
   - name: password
     prompt: "Enter your password here: "
-    private: true
+    private: true   # It will hide the content of what you are typing. Means secure
   tasks:
   - name: print username
     ansible.builtin.debug:
