@@ -4,4 +4,4 @@
   tasks:
   - name: print facts
     ansible.builtin.debug:
-      msg: "{{ ansible_facts }}"
+      msg: "{{ ansible_facts }}"   # facts contain all information about target server. Here ansible_facts is reserved variable.
