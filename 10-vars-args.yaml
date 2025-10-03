@@ -5,3 +5,7 @@
   - name: print learning details
     ansible.builtin.debug:
       msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
+
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-userr -e ansible_password=DevOps321 10-vars-args.yaml -e "COURSE=Ansible" -e "TOPIC=Variables" -e "LEVEL=Medium"
+
+# Here we passed variables as arguments.

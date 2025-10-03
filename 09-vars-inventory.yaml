@@ -5,3 +5,5 @@
   - name: print learning details
     ansible.builtin.debug:
       msg: "I am learning {{ COURSE }} and the topic is {{ TOPIC }}. Difficulty level is {{ LEVEL }}"
+
+## Here we didnt define any variables or not given variables.yaml file. But we defined variables in inventory.ini. So, it takes values from there
