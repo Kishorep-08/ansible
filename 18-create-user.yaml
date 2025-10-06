@@ -1,0 +1,11 @@
+- name: user creation
+  hosts: local
+  connection: local
+  tasks:
+  - name: check user exist or not
+    ansible.builtin.command: id kishore
+    register: user_output
+  
+  - name: print status
+    ansible.builtin.debug:
+    msg: {{ user_output }}
