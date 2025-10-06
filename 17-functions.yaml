@@ -14,6 +14,7 @@
     - key: Environment
       value: dev
     text: "kishore"
+    gmail: "kishore-DEVOPS@GMAIL.com"
 
   tasks:
   - name: print function
@@ -44,3 +45,9 @@
   - name: convert to upper case
     ansible.builtin.debug:
       msg: "text in upper case is: {{ text | upper }}"
+  
+  # convert to lower case
+
+  - name: convert to lower case
+  ansible.builtin.debug:
+    msg: "gmail in lower case: {{ gmail | lower }}"
