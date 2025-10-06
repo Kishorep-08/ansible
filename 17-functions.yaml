@@ -71,19 +71,18 @@
 
   # Error handling
     
-    - name: error handling
-      ansible.builtin.command: "ls -la >> /tmp/output.txt"
-      register: redirect_output
+  - name: error handling
+    ansible.builtin.command: "ls -la >> /tmp/output.txt"
+    register: redirect_output
 
-    - name: print the output
-      ansible.builtin.debug:
-        msg: "{{ redirect_output }}"
-
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
     
-    - name: error handling
-      ansible.builtin.command: "ls -la"
-      register: redirect_output
+  - name: error handling
+    ansible.builtin.command: "ls -la"
+    register: redirect_output
 
-    - name: print the output
-      ansible.builtin.debug:
-        msg: "{{ redirect_output }}"
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
