@@ -1,7 +1,17 @@
 - name: functions
   hosts: local
   connection: local
+  vars:
+    Topics: Linux, shell-scripting, Ansible
   tasks:
   - name: print function
     ansible.builtin.debug:
       msg: "Hello , {{ name | default('Kishore') }}"
+
+## Convert string to list
+
+- name: convert string to list
+  hosts: local
+  connection: local
+  ansible.builtin.debug:
+    msg: " Topics learnt so far : {{ Topics | split ',' }}"
