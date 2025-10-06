@@ -21,4 +21,4 @@
 
   - name: convert map to list
     ansible.builtin.debug:
-      msg: "Application details are: {{ env | dic2items }}"
+      msg: "Application details are: {{ env | dict2items }}"
