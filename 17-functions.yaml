@@ -10,6 +10,6 @@
 
 ## Convert string to list
 
-- name: convert string to list
-  ansible.builtin.debug:
-    msg: "Topics learnt so far : {{ topics | split(',') }}"
+  - name: convert string to list
+    ansible.builtin.debug:
+      msg: "Topics learnt so far : {{ topics | split(',') }}"
