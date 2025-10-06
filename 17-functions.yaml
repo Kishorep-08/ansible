@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    Topics: Linux, shell-scripting, Ansible
+    topics: Linux, shell-scripting, Ansible
   tasks:
   - name: print function
     ansible.builtin.debug:
@@ -12,4 +12,4 @@
 
 - name: convert string to list
   ansible.builtin.debug:
-    msg: " Topics learnt so far : {{ Topics | split(',') }} "
+    msg: "Topics learnt so far : {{ topics | split(',') }}"
