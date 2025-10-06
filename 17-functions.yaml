@@ -72,8 +72,9 @@
   # Error handling
     
   - name: error handling
-    ansible.builtin.shell: "ls -la >> /tmp/output.txt"
+    ansible.builtin.command: "ls -la >> /tmp/output.txt"
     register: redirect_output
+    ignore_errors: true
 
   - name: print the output
     ansible.builtin.debug:
