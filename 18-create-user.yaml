@@ -6,6 +6,7 @@
   - name: check user exist or not
     ansible.builtin.command: id kishore
     register: user_output
+    ignore_errors: true
   
   - name: print status
     ansible.builtin.debug:
