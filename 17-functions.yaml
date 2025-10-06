@@ -3,6 +3,9 @@
   connection: local
   vars:
     topics: Linux, shell-scripting, Ansible
+    env: 
+      Application: payment
+      Environment: dev
   tasks:
   - name: print function
     ansible.builtin.debug:
@@ -13,3 +16,9 @@
   - name: convert string to list
     ansible.builtin.debug:
       msg: "Topics learnt so far : {{ topics | split(',') }}"
+  
+  # Convert maps to list
+
+  - name: convert map to list
+    ansible.builtin.debug:
+      msg: "Application details are: {{ env | dic2items }}"
