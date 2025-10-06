@@ -2,10 +2,18 @@
   hosts: local
   connection: local
   vars:
-    topics: Linux, shell-scripting, Ansible
+    topics: Linux, shell-scripting, Ansible  #string
+    # dictionary== map
     env: 
       Application: payment
       Environment: dev
+    #list
+    list:
+    - key: Application
+      value: payment
+    - key: Environment
+      value: dev
+
   tasks:
   - name: print function
     ansible.builtin.debug:
@@ -22,3 +30,9 @@
   - name: convert map to list
     ansible.builtin.debug:
       msg: "Application details are: {{ env | dict2items }}"
+
+  # convert list to dictionary
+
+  - name: convert list to mao
+    ansible.builtin.debug:
+      msg: "List is : {{ list | items2dict }}"
