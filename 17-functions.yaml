@@ -15,7 +15,7 @@
       value: dev
     text: "kishore"
     gmail: "kishore-DEVOPS@GMAIL.com"
-    ipaddress: "450.562.56.256"    #given invalid IP to check filter
+    ipaddress: "192.168.0.1"    #given invalid IP to check filter
   
   tasks:
   - name: print function
