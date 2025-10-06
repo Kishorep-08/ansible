@@ -62,8 +62,9 @@
   # Shell/ command modules
 
   - name: grep for root
-    ansible.builtin.command: cat /etc/passwd | grep root
+    ansible.builtin.command: "cat /etc/passwd | grep root"
     register: command_output
+
   - name: print the output
     ansible.builtin.debug:
       msg: {{ command_output }}
