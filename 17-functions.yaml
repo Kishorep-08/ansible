@@ -58,3 +58,12 @@
   - name: check ipaddress validity
     ansible.builtin.debug:
       msg: "IPAddress: {{ ipaddress | ansible.utils.ipaddr }}"
+
+  # Shell/ command modules
+
+  - name: grep for root
+    ansible.builtin.command: cat /etc/passwd | grep root
+    register: command_output
+  - name: print the output
+    ansible.builtin.debug:
+      msg: {{ command_output }}
