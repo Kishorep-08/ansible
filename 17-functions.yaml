@@ -13,7 +13,7 @@
       value: payment
     - key: Environment
       value: dev
-    name: "Text in lower case"
+    text: "kishore"
 
   tasks:
   - name: print function
@@ -43,4 +43,4 @@
 
   - name: convert to upper case
     ansible.builtin.debug:
-      msg: "Name in upper case is: {{ name | upper }}"
+      msg: "text in upper case is: {{ text | upper }}"
