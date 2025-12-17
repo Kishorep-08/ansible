@@ -2,11 +2,23 @@
 - name: Installing httpd and php on all app servers
   hosts: "app-servers"
   become: yes
+
+  vars:
+    http_port: 3004
+
   tasks:
   - name: Install httpd
     ansible.builtin.package:
       name: httpd
       state: present
+  
+  - name: Configure Apache to listen on custom port
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^Listen '
+      line: "Listen {{ http_port }}"
+    notify: restart httpd
+
   - name: Install PHP and common modules
   yum:
     name:
@@ -23,7 +35,20 @@
     state: started
     enabled: yes
 
-- name: restart apache service
-  service:
-    name: httpd
-    state: restarted
+- name: Install MariaDB server and Python MySQL module
+  hosts: "db-server"
+  become: yes
+  tasks:
+  - name: Install MariaDB server
+    yum:
+      name:
+        - mariadb-server
+        - python3-PyMySQL
+      state: present
+
+  - name: Start and enable MariaDB
+    service:
+      name: mariadb
+      state: started
+      enabled: yes
+
