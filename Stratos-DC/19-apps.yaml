@@ -1,0 +1,29 @@
+---
+- name: Installing httpd and php on all app servers
+  hosts: "app-servers"
+  become: yes
+  tasks:
+  - name: Install httpd
+    ansible.builtin.package:
+      name: httpd
+      state: present
+  - name: Install PHP and common modules
+  yum:
+    name:
+      - php
+      - php-cli
+      - php-common
+      - php-mysqlnd
+      - php-fpm
+    state: present
+
+- name: Start and enable PHP-FPM
+  service:
+    name: php-fpm
+    state: started
+    enabled: yes
+
+- name: restart apache service
+  service:
+    name: httpd
+    state: restarted
