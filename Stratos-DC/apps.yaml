@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    http_port: 3004
+    http_port: 8089
 
   tasks:
   - name: Install httpd
@@ -38,23 +38,6 @@
 
     service:
       name: php-fpm
-      state: started
-      enabled: yes
-
-- name: Install MariaDB server and Python MySQL module
-  hosts: "db-server"
-  become: yes
-  tasks:
-  - name: Install MariaDB server
-    yum:
-      name:
-        - mariadb-server
-        - python3-PyMySQL
-      state: present
-
-  - name: Start and enable MariaDB
-    service:
-      name: mariadb
       state: started
       enabled: yes
 

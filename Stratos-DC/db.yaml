@@ -1,0 +1,65 @@
+---
+- name: Configure MariaDB server
+  hosts: db-servers
+  become: yes
+
+  vars:
+    db_name: kodekloud_db8
+    db_user: kodekloud_joy
+    db_password: YchZHRcLkL
+
+  tasks:
+    - name: Install MariaDB server
+      yum:
+        name:
+          - mariadb-server
+          - python3-PyMySQL
+        state: present
+
+    - name: Start and enable MariaDB
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: Create database
+      mysql_db:
+        name: "{{ db_name }}"
+        state: present
+
+    - name: Create DB user and grant privileges
+      mysql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_password }}"
+        priv: "{{ db_name }}.*:ALL"
+        host: "%"
+        state: present
+
+- name: Configure firewall for MariaDB
+  hosts: db-servers
+  become: yes
+  tasks:
+  # Install firewalld
+    - name: Install firewalld
+      yum:
+        name: firewalld
+        state: present
+  # Start and enable firewalld
+    - name: Start and enable firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: started
+        enabled: yes
+  # Open firewall port for MariaDB
+    - name: Open MariaDB port in firewall
+      firewalld:
+        port: 3306/tcp
+        permanent: yes
+        state: enabled
+      notify: reload firewalld
+
+  handlers:
+    - name: reload firewalld
+      service:
+        name: firewalld
+        state: reloaded
