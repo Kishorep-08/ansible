@@ -29,11 +29,12 @@
         - php-fpm
       state: present
 
-- name: Start and enable PHP-FPM
-  service:
-    name: php-fpm
-    state: started
-    enabled: yes
+  - name: Start and enable PHP-FPM
+
+    service:
+      name: php-fpm
+      state: started
+      enabled: yes
 
 - name: Install MariaDB server and Python MySQL module
   hosts: "db-server"
