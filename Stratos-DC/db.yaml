@@ -42,7 +42,7 @@
 
 
 - name: Configure firewall for MariaDB
-  hosts: db-servers
+  hosts: db-server
   become: yes
   tasks:
   # Install firewalld
