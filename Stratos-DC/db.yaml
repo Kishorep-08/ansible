@@ -6,7 +6,7 @@
   vars:
     db_name: kodekloud_db8
     db_user: kodekloud_joy
-    db_password: "{{ db_password }}"
+    db_password: "{{ db_user_password }}"
 
   tasks:
     - name: Install MariaDB server
