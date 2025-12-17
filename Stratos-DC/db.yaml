@@ -1,12 +1,12 @@
 ---
 - name: Configure MariaDB server
-  hosts: db-servers
+  hosts: db-server
   become: yes
 
   vars:
     db_name: kodekloud_db8
     db_user: kodekloud_joy
-    db_password: YchZHRcLkL
+    db_password: "{{ db_password }}"
 
   tasks:
     - name: Install MariaDB server
