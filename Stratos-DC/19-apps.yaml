@@ -17,7 +17,12 @@
       path: /etc/httpd/conf/httpd.conf
       regexp: '^Listen '
       line: "Listen {{ http_port }}"
-    notify: restart httpd
+    
+  - name: Start and enable httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes
 
   - name: Install PHP and common modules
     ansible.builtin.package:
