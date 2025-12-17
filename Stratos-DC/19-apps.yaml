@@ -20,14 +20,14 @@
     notify: restart httpd
 
   - name: Install PHP and common modules
-  yum:
-    name:
-      - php
-      - php-cli
-      - php-common
-      - php-mysqlnd
-      - php-fpm
-    state: present
+    ansible.builtin.package:
+      name:
+        - php
+        - php-cli
+        - php-common
+        - php-mysqlnd
+        - php-fpm
+      state: present
 
 - name: Start and enable PHP-FPM
   service:
